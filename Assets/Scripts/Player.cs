@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     public float jumpForce = 400f;
 
-    public float runSpeed = 10f;
+    public float runSpeed = 200f;
 
     public int health = 1;
 
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Check inputs and update variables
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump"))
         {

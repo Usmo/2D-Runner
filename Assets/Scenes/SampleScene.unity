@@ -805,7 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2013797161}
   jumpForce: 400
-  runSpeed: 20
+  runSpeed: 200
   health: 1
 --- !u!50 &2013797163
 Rigidbody2D:
