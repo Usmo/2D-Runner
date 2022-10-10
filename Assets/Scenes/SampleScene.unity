@@ -785,12 +785,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01d3bd66208b77438a3a5e4de5746ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
   m_MovementSmoothing: 0.05
   m_GroundCheck: {fileID: 2143375547}
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 55
+  player: {fileID: 2013797162}
 --- !u!114 &2013797162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,7 +804,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2013797161}
-  runSpeed: 40
+  jumpForce: 400
+  runSpeed: 20
+  health: 1
 --- !u!50 &2013797163
 Rigidbody2D:
   serializedVersion: 4
