@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public CharacterController controller;
 
-    public float runSpeed = 40f;
+    public float jumpForce = 400f;
+
+    public float runSpeed = 10f;
+
+    public int health = 1;
 
     float horizontalMove = 0f;
     bool jump = false;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 400f;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
     private Vector3 velocity = Vector3.zero;
     private Rigidbody2D m_Rigidbody2D;
@@ -12,6 +11,8 @@ public class CharacterController : MonoBehaviour
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     [SerializeField] public Transform m_GroundCheck;   // A position marking where to check if the player is grounded.
     [SerializeField] public LayerMask m_WhatIsGround;  // A mask determining what is ground to the character
+
+    public Player player;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class CharacterController : MonoBehaviour
     public void Move(float move, bool jump)
     {
         // Move the character by finding the target velocity
-        Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+        Vector3 targetVelocity = new Vector2(move * player.runSpeed, m_Rigidbody2D.velocity.y);
         // And then smoothing it out and applying it to the character
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
 
@@ -45,7 +46,7 @@ public class CharacterController : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(0f, player.jumpForce));
         }
     }
 }
