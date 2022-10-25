@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterController : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public LayerMask m_WhatIsGround;  // A mask determining what is ground to the character
 
     public Player player;
+
+    [Header("Events")]
+    [Space]
+
+    public UnityEvent OnLandEvent;
+
 
     private void Awake()
     {
@@ -31,7 +38,9 @@ public class CharacterController : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
                 m_Grounded = true;
+                OnLandEvent.Invoke();
         }
+        
     }
 
     public void Move(float move, bool jump)
