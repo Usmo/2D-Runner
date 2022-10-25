@@ -19,6 +19,7 @@ public class CharacterController : MonoBehaviour
     [Space]
 
     public UnityEvent OnLandEvent;
+    public UnityEvent OnFallingEvent;
 
 
     private void Awake()
@@ -40,7 +41,10 @@ public class CharacterController : MonoBehaviour
                 m_Grounded = true;
                 OnLandEvent.Invoke();
         }
-        
+        if (!m_Grounded) //player is falling if gameobjects are not found below 
+        {
+            OnFallingEvent.Invoke();
+        }
     }
 
     public void Move(float move, bool jump)
