@@ -62,9 +62,15 @@ public class Player : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    // onLanding and onFalling are events for animations
     public void onLanding()
     {
         animator.SetBool("isJumping", false);
+        animator.SetBool("isFalling", false);
+    }
+    public void onFalling()
+    {
+        animator.SetBool("isFalling", true);
     }
 
 }
