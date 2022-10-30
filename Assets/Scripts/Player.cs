@@ -7,15 +7,29 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
 
+    public GameObject startPosition;
+
+    public DeathScreen deathScreen;
+
     public float jumpForce = 400f;
     public float runSpeed = 200f;
     public int health = 1;
+
+    public bool isAlive = true;
 
     float horizontalMove = 0f;
     bool jump = false;
     bool lookingRight = true;
 
 
+    void Start()
+    {
+        if (startPosition != null)
+        {
+            transform.position = startPosition.transform.position;
+        }
+
+    }
     void Update()
     {
         // Check inputs and update variables
@@ -39,6 +53,7 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
+
     }
 
     void FixedUpdate()
@@ -78,4 +93,16 @@ public class Player : MonoBehaviour
     // at player death -> animator.SetBool("isAlive", false);
     // and at reset level -> animator.SetBool("isAlive", true);
 
+    public void takeDamage()
+    {
+        health--;
+        if (health <= 0)
+        {
+            isAlive = false;
+            if (deathScreen != null)
+            {
+                deathScreen.ShowDeathScreen();
+            }
+        }
+    }
 }
