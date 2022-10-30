@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject PlayerObj = other.gameObject;
             Player player = PlayerObj.GetComponent<Player>();
-            DealDamage(player);
+            player.takeDamage();
         }
        
 
