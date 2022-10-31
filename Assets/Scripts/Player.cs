@@ -8,9 +8,7 @@ public class Player : MonoBehaviour
     public Animator animator;
 
     public float jumpForce = 400f;
-
     public float runSpeed = 200f;
-
     public int health = 1;
 
     float horizontalMove = 0f;
@@ -22,7 +20,12 @@ public class Player : MonoBehaviour
     {
         // Check inputs and update variables
         horizontalMove = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("speed", Mathf.Abs(horizontalMove));
+
+        if (animator != null)
+        {
+            animator.SetFloat("speed", Mathf.Abs(horizontalMove));
+        }
+        
         if(lookingRight && horizontalMove < 0)
         {
             Flip();
@@ -46,8 +49,6 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isJumping", true);
         }
-        
-        
         jump = false;
     }
 
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour
         // Switch the way the player is labelled as facing.
         lookingRight = !lookingRight;
 
-        // Multiply the player's x local scale by -1.
+        // Multiply the player's x local scale by -1 to flip it.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
@@ -72,5 +73,9 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("isFalling", true);
     }
+
+    // TODO: Player death animation
+    // at player death -> animator.SetBool("isAlive", false);
+    // and at reset level -> animator.SetBool("isAlive", true);
 
 }
