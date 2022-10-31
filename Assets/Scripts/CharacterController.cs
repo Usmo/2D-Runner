@@ -43,7 +43,11 @@ public class CharacterController : MonoBehaviour
         }
         if (!m_Grounded) //player is falling if gameobjects are not found below 
         {
-            OnFallingEvent.Invoke();
+            if (OnFallingEvent != null) // Tests fails without this, if no unityevent is linked
+            {
+                OnFallingEvent.Invoke();
+            }
+            
         }
     }
 
