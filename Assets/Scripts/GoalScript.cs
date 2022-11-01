@@ -8,11 +8,17 @@ public class GoalScript : MonoBehaviour
 
     public GameObject WinScreen;
     public Player player;
+    public ScoreController scoreController;
 
     public void playerReachesGoal() 
     {
         Time.timeScale = 0f;
         WinScreen.SetActive(true);
+        if (scoreController != null) 
+        {
+            scoreController.addScore(scoreController.timeScore);
+        }
+        
     }
 
     public void OnCollisionEnter2D(Collision2D other) 
