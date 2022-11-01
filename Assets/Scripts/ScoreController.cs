@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreController : MonoBehaviour
 {
     public float timeScore = 1000;
+    public float rewardValue = 100f;
     public float score = 0;
     public float timeScore_minimumvalue = 0;
     public float timeLeft = 0.3f;
@@ -39,5 +40,11 @@ public class ScoreController : MonoBehaviour
     public void addScore(float value) 
     {
         score += value;
+    }
+
+
+    public void addRewardScore() 
+    {
+        addScore(rewardValue);
     }
 }
