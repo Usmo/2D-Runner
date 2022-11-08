@@ -99,10 +99,29 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             isAlive = false;
+            if (animator != null) { 
+                animator.SetBool("isAlive", false); 
+            }
+
             if (deathScreen != null)
             {
                 deathScreen.ShowDeathScreen();
             }
         }
     }
+    
+    public void resetLevel()
+        // Reset all player related variables
+    {
+        // After coins have been added to game, here should be a function to reactivate all collected coins
+
+        Time.timeScale = 1f;
+        if (startPosition != null ) transform.position = startPosition.transform.position; // null check so test can be run without it
+        health = 1;
+        isAlive = true;
+
+        if (animator != null) animator.SetBool("isAlive", true);
+
+    }
+
 }

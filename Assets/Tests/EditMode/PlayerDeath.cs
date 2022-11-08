@@ -63,6 +63,7 @@ public class PlayerDeath
 
         screen.panel = new GameObject("panel");
         player.deathScreen = screen;
+        player.startPosition = new GameObject("Start");
 
         player.transform.position = new Vector3(2, 3, 0);
 
@@ -70,7 +71,6 @@ public class PlayerDeath
         player.health = 0;
 
         screen.player = player;
-        screen.startPosition = new GameObject("Start");
 
         // ACT
         screen.resetLevel();
@@ -95,9 +95,9 @@ public class PlayerDeath
 
         player.isAlive = false;
         player.health = 0;
+        player.startPosition = new GameObject("Start");
 
         screen.player = player;
-        screen.startPosition = new GameObject("Start");
 
         // ACT
         screen.resetLevel();

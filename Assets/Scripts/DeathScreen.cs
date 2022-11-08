@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeathScreen : MonoBehaviour
 {
-    public GameObject startPosition;
     public GameObject panel;
     public Player player;
 
@@ -32,10 +31,7 @@ public class DeathScreen : MonoBehaviour
 
     public void resetLevel()
     {
-        player.transform.position = startPosition.transform.position;
-        Time.timeScale = 1f;
         ShowDeathScreen();
-        player.health = 1;
-        player.isAlive = true;
+        player.resetLevel();
     }
 }

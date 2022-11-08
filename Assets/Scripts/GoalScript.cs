@@ -33,10 +33,9 @@ public class GoalScript : MonoBehaviour
 
     }
 
-    public void ResetPlayerPosition()
+    public void ResetLevel()
     {   
-        Time.timeScale = 1f;
-        player.transform.position = new Vector3(0, 0, 0);
         WinScreen.SetActive(false);
+        player.resetLevel();
     }
 }
