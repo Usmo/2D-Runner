@@ -900,7 +900,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1254982705}
         m_TargetAssemblyTypeName: GoalScript, Scripts
-        m_MethodName: ResetPlayerPosition
+        m_MethodName: ResetLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1081,7 +1081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5ad15b2198eec44812701bf64802a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 2111297968}
   panel: {fileID: 321550542}
   player: {fileID: 2013797162}
 --- !u!114 &736807296
