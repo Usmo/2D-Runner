@@ -47,4 +47,10 @@ public class ScoreController : MonoBehaviour
     {
         addScore(rewardValue);
     }
+
+    public void resetScore()
+    {
+        score = 0;
+        timeScore = 1000;
+    }
 }

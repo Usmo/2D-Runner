@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public Animator animator;
 
     public GameObject startPosition;
-
+    public ScoreController scoreController;
     public DeathScreen deathScreen;
 
     public float jumpForce = 400f;
@@ -119,8 +119,8 @@ public class Player : MonoBehaviour
         if (startPosition != null ) transform.position = startPosition.transform.position; // null check so test can be run without it
         health = 1;
         isAlive = true;
-
         if (animator != null) animator.SetBool("isAlive", true);
+        if (scoreController != null) scoreController.resetScore();
 
     }
 
