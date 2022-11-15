@@ -2427,6 +2427,7 @@ MonoBehaviour:
   controller: {fileID: 2013797161}
   animator: {fileID: 2013797164}
   startPosition: {fileID: 2111297968}
+  scoreController: {fileID: 224383281}
   deathScreen: {fileID: 736807295}
   jumpForce: 400
   runSpeed: 200

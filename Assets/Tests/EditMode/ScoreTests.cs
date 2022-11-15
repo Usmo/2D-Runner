@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class TimescoreTests
+public class ScoreTests
 {
     // A Test behaves as an ordinary method
     [Test]
@@ -36,6 +36,28 @@ public class TimescoreTests
 
         // ASSERT
         Assert.AreEqual(controller.score, 5);
+
+    }
+
+    [Test]
+    public void ResetScoreOnResetLevel()
+    {
+        // ARRANGE
+        GameObject gameobject = new GameObject("Object", typeof(Player));
+        Player player = gameobject.GetComponent(typeof(Player)) as Player;
+
+        GameObject scoreControllerObject = new GameObject("ScoreObject", typeof(ScoreController));
+        ScoreController scoreController = scoreControllerObject.GetComponent(typeof(ScoreController)) as ScoreController;
+
+        player.scoreController = scoreController;
+        scoreController.score = 500;
+        scoreController.timeScore = 900;
+
+        // ACT
+        player.resetLevel();
+
+        // ASSERT
+        Assert.AreEqual(scoreController.score, 0);
 
     }
 }
