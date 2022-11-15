@@ -2154,6 +2154,12 @@ MonoBehaviour:
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
+  - name: background
+    clip: {fileID: 8300000, guid: c743c57cbba4874469fe66d5f30c8a50, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &1848569523
 Transform:
   m_ObjectHideFlags: 0
