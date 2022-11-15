@@ -13,6 +13,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public Transform m_GroundCheck;   // A position marking where to check if the player is grounded.
     [SerializeField] public LayerMask m_WhatIsGround;  // A mask determining what is ground to the character
 
+    // This is to keep track of different jump sounds
+    private int jumpSound = 1;
+
     public Player player;
 
     [Header("Events")]
@@ -64,6 +67,17 @@ public class CharacterController : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, player.jumpForce));
+            if (player.audioManager != null) 
+            {
+                // Cycle through 3 different jump sounds when jumping
+                player.audioManager.Play("jump_" + jumpSound);
+                if (jumpSound == 3)
+                {
+                    jumpSound = 1;
+                }
+                else { jumpSound++; }
+
+            }
         }
     }
 }

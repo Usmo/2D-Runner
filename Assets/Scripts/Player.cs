@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public CharacterController controller;
     public Animator animator;
+    public AudioManager audioManager;
 
     public GameObject startPosition;
     public ScoreController scoreController;
@@ -89,24 +90,19 @@ public class Player : MonoBehaviour
         animator.SetBool("isFalling", true);
     }
 
-    // TODO: Player death animation
-    // at player death -> animator.SetBool("isAlive", false);
-    // and at reset level -> animator.SetBool("isAlive", true);
-
     public void takeDamage()
     {
         health--;
         if (health <= 0)
         {
             isAlive = false;
-            if (animator != null) { 
-                animator.SetBool("isAlive", false); 
-            }
 
-            if (deathScreen != null)
-            {
-                deathScreen.ShowDeathScreen();
-            }
+            if(audioManager != null) audioManager.Play("death");
+
+            if (animator != null) animator.SetBool("isAlive", false);
+
+            if (deathScreen != null) deathScreen.ShowDeathScreen();      
+            
         }
     }
     
