@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
             transform.position = startPosition.transform.position;
         }
 
+        if (audioManager != null) audioManager.Play("background");
+
     }
     void Update()
     {
