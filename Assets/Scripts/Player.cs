@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
         if (audioManager != null) audioManager.Play("background");
 
+        Coin.InitCoins(); //Save all coin objects to a list
+
     }
     void Update()
     {
@@ -111,7 +113,7 @@ public class Player : MonoBehaviour
     public void resetLevel()
         // Reset all player related variables
     {
-        // After coins have been added to game, here should be a function to reactivate all collected coins
+        Coin.ReactivateAllCoins();
 
         Time.timeScale = 1f;
         if (startPosition != null ) transform.position = startPosition.transform.position; // null check so test can be run without it
@@ -119,7 +121,6 @@ public class Player : MonoBehaviour
         isAlive = true;
         if (animator != null) animator.SetBool("isAlive", true);
         if (scoreController != null) scoreController.resetScore();
-
     }
 
 }
