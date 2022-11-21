@@ -44,7 +44,7 @@ public class Coin : MonoBehaviour
     {
         GameObject puff = Instantiate(CoinPickupEffect);
         puff.transform.position = transform.position;
-        if(!Application.isEditor) Destroy(puff, 1); //Check that we are not in edit mode (EditModeTests)
+        if(Application.isPlaying) Destroy(puff, 1); //Check that we are not in edit mode (EditModeTests)
     }
 
 }
