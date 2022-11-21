@@ -5,10 +5,12 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public static ScoreController scorecontroller;
+    public static GameObject CoinPickupEffect;
     static GameObject[] coins; 
 
     public void CoinCollected()
     {
+        if(CoinPickupEffect != null) CreateCoinPickupEffect();
         gameObject.SetActive(false);
         if(scorecontroller != null) scorecontroller.addRewardScore();
     }
@@ -16,6 +18,7 @@ public class Coin : MonoBehaviour
     {
         scorecontroller = FindObjectOfType<ScoreController>(); // We get ScoreController and save it
         coins = GameObject.FindGameObjectsWithTag("Coin");
+        CoinPickupEffect = Resources.Load("Prefabs/CoinPickupEffect", typeof(GameObject)) as GameObject;
     }
     public static void ReactivateAllCoins() // Reactivates all coins
     {
@@ -37,5 +40,11 @@ public class Coin : MonoBehaviour
         }
     }
 
+    void CreateCoinPickupEffect() 
+    {
+        GameObject puff = Instantiate(CoinPickupEffect);
+        puff.transform.position = transform.position;
+        if(!Application.isEditor) Destroy(puff, 1); //Check that we are not in edit mode (EditModeTests)
+    }
 
 }
