@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public static ScoreController scorecontroller;
+    public static ScoreController scoreController;
     public static GameObject CoinPickupEffect;
-    static GameObject[] coins; 
+    static GameObject[] coins;
+    public static AudioManager audioManager;
+
+    private static int coinSound = 1;
 
     public void CoinCollected()
     {
         if(CoinPickupEffect != null) CreateCoinPickupEffect();
         gameObject.SetActive(false);
-        if(scorecontroller != null) scorecontroller.addRewardScore();
+        if(scoreController != null) scoreController.addRewardScore();
+
+        if (audioManager != null)
+        {
+            // Cycle through 3 different coin sounds when collecting a coin.
+            audioManager.Play("coin_" + coinSound);
+            if (coinSound == 3)
+            {
+                coinSound = 1;
+            }
+            else { coinSound++; }
+
+        }
     }
     public static void InitCoins() //This needs to be called in start to save all active coin objects in the game
     {
-        scorecontroller = FindObjectOfType<ScoreController>(); // We get ScoreController and save it
+        scoreController = FindObjectOfType<ScoreController>(); // We get ScoreController and save it
+        audioManager = FindObjectOfType<AudioManager>(); // We get AudioManager and save it 
         coins = GameObject.FindGameObjectsWithTag("Coin");
         CoinPickupEffect = Resources.Load("Prefabs/CoinPickupEffect", typeof(GameObject)) as GameObject;
     }
