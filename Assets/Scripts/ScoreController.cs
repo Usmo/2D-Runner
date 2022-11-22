@@ -9,7 +9,7 @@ public class ScoreController : MonoBehaviour
     public float score = 0;
     public float timeScore_minimumvalue = 0;
     public float timeLeft = 0.3f;
-    
+
     // Start is called before the first frame update
     void Start(){}
 

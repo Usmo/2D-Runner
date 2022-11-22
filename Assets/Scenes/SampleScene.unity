@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5302055649504053192, guid: 9742036d57b8e0047a35ac73ea99f132, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2013797162}
+    - target: {fileID: 5302055649504053192, guid: 9742036d57b8e0047a35ac73ea99f132, type: 3}
+      propertyPath: scoreController
+      value: 
+      objectReference: {fileID: 224383281}
     - target: {fileID: 5302055649504053193, guid: 9742036d57b8e0047a35ac73ea99f132, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2226,6 +2234,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5302055649504053192, guid: 9742036d57b8e0047a35ac73ea99f132, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2013797162}
+    - target: {fileID: 5302055649504053192, guid: 9742036d57b8e0047a35ac73ea99f132, type: 3}
+      propertyPath: scoreController
+      value: 
+      objectReference: {fileID: 224383281}
     - target: {fileID: 5302055649504053193, guid: 9742036d57b8e0047a35ac73ea99f132, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2655,6 +2671,24 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: coin_1
+    clip: {fileID: 8300000, guid: 1f6a35acca94d274dbd2e4bc9345f6e6, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: coin_2
+    clip: {fileID: 8300000, guid: aac5c1ef3447d7b4cb6418b2d0bf432f, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: coin_3
+    clip: {fileID: 8300000, guid: 67bb8cef7f262ff49aa985533a86b903, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1848569523
 Transform:
