@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
             transform.position = startPosition.transform.position;
         }
 
-        if (audioManager != null) audioManager.Play("background");
-
         Coin.InitCoins(); //Save all coin objects to a list
 
     }
